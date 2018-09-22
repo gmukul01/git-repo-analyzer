@@ -1,0 +1,40 @@
+{
+  "name": "git-repo-analyzer",
+  "version": "1.0.0",
+  "description": "This project is use to analyse the git repo stats.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./server/index.js",
+    "dev-start": "nodemon ./server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gmukul01/git-repo-analyzer.git"
+  },
+  "author": "Mukul Bansal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gmukul01/git-repo-analyzer/issues"
+  },
+  "homepage": "https://github.com/gmukul01/git-repo-analyzer#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "mongoose": "^5.2.17",
+    "nodemon": "^1.18.4",
+    "passport": "^0.4.0",
+    "passport-github": "^1.1.0"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "nodeman": "^1.1.2",
+    "prettier": "^1.14.3"
+  }
+}
