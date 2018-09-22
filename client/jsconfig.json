@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "target": "es2017",
+    "allowSyntheticDefaultImports": false,
+    "baseUrl": "./",
+    "paths": {
+      "components/*": ["src/js/components/*"],
+      "routes/*": ["src/js/routes/*"],
+      "util/*": ["src/js/util/*"]
+    }
+  },
+  "exclude": ["node_modules", "build"]
+}
