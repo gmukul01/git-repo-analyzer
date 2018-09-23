@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header page  should render correctly 1`] = `
+<nav
+  className="header"
+>
+  <Link
+    className="logo"
+    replace={false}
+    to="/"
+  >
+    Git Repo Analyzer
+  </Link>
+  <Link
+    replace={false}
+    to="/logout"
+  >
+    Logout
+  </Link>
+</nav>
+`;

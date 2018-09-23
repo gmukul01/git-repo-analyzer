@@ -4,6 +4,7 @@ import { Router } from "react-router-dom";
 
 import Routes from "routes/Routes";
 import history from "util/history";
+import "assets/stylesheets/main.scss";
 
 ReactDOM.render(
   <Router history={history}>
