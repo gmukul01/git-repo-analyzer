@@ -86,9 +86,16 @@ if (process.env.NODE_ENV === "production") {
     inline: true,
     disableHostCheck: true,
     historyApiFallback: true,
+    proxy: [
+      {
+        context: ["/auth"],
+        target: "http://localhost:8080"
+      }
+    ],
     headers: {
       "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+      "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
     }
   };
   config.plugins.push(new webpack.HotModuleReplacementPlugin());
