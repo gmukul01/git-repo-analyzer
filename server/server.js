@@ -5,7 +5,6 @@ import session from "express-session";
 import mongoose from "mongoose";
 import path from "path";
 
-import db from "./config/keys";
 import auth from "./routes/auth";
 import githubStrategy from "./auth/github";
 import errorHandler from "./util/error-handler";
@@ -34,7 +33,8 @@ app.use(
   session({
     secret: "s3cr3t",
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: true,
+    maxAge: 1800000
   })
 );
 app.use(passport.initialize());
