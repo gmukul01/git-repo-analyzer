@@ -11,10 +11,5 @@ exports[`Header page  should render correctly 1`] = `
   >
     Git Repo Analyzer
   </Link>
-  <a
-    onClick={[Function]}
-  >
-    Logout
-  </a>
 </nav>
 `;

@@ -15,21 +15,19 @@ router.get(
     req.session.accessToken = req.user.accessToken;
     req.session.user = req.user.data;
     req.session.save();
-    res.redirect(`${process.env.CLIENT_URL}/`);
+    res.redirect(`${process.env.CLIENT_URL}/home`);
   }
 );
 
 router.get("/user", (req, res, next) => {
-  req.user
-    ? res.status(200).json({ user: req.session.user });
-    : res.status(403).json({ user: null });
+  req.user ? res.status(200).json({ user: req.session.user }) : res.status(403).json({ user: null });
 });
 
 router.get("/logout", (req, res) => {
   if (req.session.user) {
     req.session.destroy();
     res.clearCookie("connect.sid");
-    res.status(200).json({ message: "logging you out" });
+    res.redirect(`${process.env.CLIENT_URL}/`);
   } else {
     res.status(200).json({ message: "no user to log out!" });
   }

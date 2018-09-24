@@ -1,12 +1,12 @@
 import React from "react";
 import ShallowRenderer from "react-test-renderer/shallow";
 
-import Home from "components/Home";
+import HomePage from "components/pages/HomePage";
 
-describe("Home page ", () => {
+describe("HomePage page ", () => {
   it("should render correctly", () => {
     const renderer = new ShallowRenderer();
-    const result = renderer.render(<Home />);
+    const result = renderer.render(<HomePage />);
     expect(result).toMatchSnapshot();
   });
 });

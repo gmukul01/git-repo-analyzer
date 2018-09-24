@@ -1,17 +1,21 @@
 import React, { PureComponent } from "react";
 import { Link } from "react-router-dom";
 
+import { LOGOUT_URL } from "constants/urls";
+
 export default class extends PureComponent {
-  onClick() {
-    fetch("/auth/logout").then(data => console.log("DATA =>", data));
-  }
   render() {
+    const { userName } = this.props;
     return (
       <nav className="header">
         <Link to="/" className="logo">
           Git Repo Analyzer
         </Link>
-        <a onClick={this.onClick}>Logout</a>
+        {userName && (
+          <span>
+            {userName} <a href={LOGOUT_URL}>Logout</a>
+          </span>
+        )}
       </nav>
     );
   }
