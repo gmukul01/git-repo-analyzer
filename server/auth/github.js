@@ -17,7 +17,7 @@ const strategy = passport => {
             name: profile.displayName,
             username: profile.username
           },
-          (err, user) => done(err, { accessToken })
+          (err, user) => done(err, { accessToken, data: user })
         );
       }
     )

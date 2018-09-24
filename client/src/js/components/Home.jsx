@@ -2,6 +2,9 @@ import React, { PureComponent, Fragment } from "react";
 import Header from "./Header";
 
 export default class Home extends PureComponent {
+  onClick() {
+    fetch("/auth/user").then(data => console.log("DATA =>", data));
+  }
   render() {
     return (
       <Fragment>
@@ -11,6 +14,7 @@ export default class Home extends PureComponent {
           <a className="btn btn-social btn-github" href="/auth/github">
             <span className="fa fa-github" /> Sign in with Github
           </a>
+          <button onClick={this.onClick}>Click ME</button>
         </section>
       </Fragment>
     );

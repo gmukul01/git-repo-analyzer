@@ -34,7 +34,7 @@ app.use(
     secret: "s3cr3t",
     resave: true,
     saveUninitialized: true,
-    maxAge: 1800000
+    maxAge: 60000 * 30
   })
 );
 app.use(passport.initialize());

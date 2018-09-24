@@ -4,7 +4,7 @@
   "plugins": ["prettier"],
   "rules": {
     "prettier/prettier": "error",
-    "no-console": "error",
+    "no-console": "warn",
     "curly": "error",
     "semi": ["error", "always"],
     "jsx-a11y/href-no-hash": "off",

@@ -11,11 +11,10 @@ exports[`Header page  should render correctly 1`] = `
   >
     Git Repo Analyzer
   </Link>
-  <Link
-    replace={false}
-    to="/logout"
+  <a
+    onClick={[Function]}
   >
     Logout
-  </Link>
+  </a>
 </nav>
 `;

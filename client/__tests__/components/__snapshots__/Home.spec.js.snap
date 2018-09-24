@@ -18,6 +18,11 @@ exports[`Home page  should render correctly 1`] = `
       />
        Sign in with Github
     </a>
+    <button
+      onClick={[Function]}
+    >
+      Click ME
+    </button>
   </section>
 </React.Fragment>
 `;
