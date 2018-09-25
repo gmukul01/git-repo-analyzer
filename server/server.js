@@ -6,6 +6,7 @@ import mongoose from "mongoose";
 import path from "path";
 
 import auth from "./routes/auth";
+import search from "./routes/search";
 import githubStrategy from "./auth/github";
 import errorHandler from "./util/error-handler";
 
@@ -42,6 +43,7 @@ app.use(passport.session());
 
 //Routes
 app.use("/auth", auth);
+app.use("/api/search", search);
 
 //global error handler
 app.use(errorHandler);

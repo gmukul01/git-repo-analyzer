@@ -1,10 +1,9 @@
 import express from "express";
-import axios from "axios";
 import passport from "passport";
 
 const router = express.Router();
 
-router.get("/github", passport.authenticate("github"));
+router.get("/github", passport.authenticate("github", { scope: ["read:user", "repo:status"] }));
 
 router.get(
   "/github/callback",

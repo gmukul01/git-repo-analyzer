@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Header from "containers/Header";
 import { GITHUB_LOGIN_URL } from "constants/urls";
 
-export default class Home extends Component {
+export default class LandingPage extends Component {
   render() {
     const { from } = this.props.location.state || { from: undefined },
       { isUserLoggedIn } = this.props;

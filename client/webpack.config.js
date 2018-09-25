@@ -88,7 +88,7 @@ if (process.env.NODE_ENV === "production") {
     historyApiFallback: true,
     proxy: [
       {
-        context: ["/auth"],
+        context: ["/auth", "/api"],
         target: "http://localhost:8080"
       }
     ],

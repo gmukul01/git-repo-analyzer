@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import { LOGOUT_URL } from "constants/urls";
 
-export default class extends PureComponent {
+export default class Header extends PureComponent {
   render() {
     const { userName } = this.props;
     return (

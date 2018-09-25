@@ -2,5 +2,4 @@ import { FETCH_USER_DETAILS, FETCH_USER_DETAILS_SUCCESS } from "constants/action
 import actionCreator from "actions/helper";
 
 export const fetchUserDetails = actionCreator(FETCH_USER_DETAILS);
-
 export const fetchUserDetailsSuccess = actionCreator(FETCH_USER_DETAILS_SUCCESS, "user");
