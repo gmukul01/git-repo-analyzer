@@ -2,11 +2,12 @@
 
 exports[`HomePage page  should render correctly 1`] = `
 <React.Fragment>
-  <Connect(PureComponent) />
+  <Connect(Header) />
   <section
     className="content"
   >
-    Hey 
+    <Connect(SearchForm) />
+    <SearchHistory />
   </section>
 </React.Fragment>
 `;

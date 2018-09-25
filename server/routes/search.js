@@ -1,7 +1,22 @@
 import express from "express";
 import fetch from "../util/fetch";
+import SearchHistorySchema from "../models/SearchHistory";
 
 const router = express.Router();
+
+const getRepoNames = response => response.data.items.map(repo => repo.full_name);
+
+const sortRepos = (a, b) => new Date(`${b.updated_at}`) - new Date(`${a.updated_at}`);
+
+const getRepoDetails = async (accessToken, history) =>
+  await Promise.all(
+    history.map(async ({ repoName, htmlUrl, updated_at }) => {
+      const commitCount = await getCommitsCount(1, accessToken, repoName),
+        openPullRequenCount = await getOpenPullRequestCount(1, accessToken, repoName),
+        readme = await getReadMeText(accessToken, repoName);
+      return { repoName, commitCount, openPullRequenCount, readme, htmlUrl, updated_at };
+    })
+  );
 
 const getRepos = async (req, res) => {
   const { ownerName, repoName } = req.body;
@@ -16,46 +31,62 @@ const getRepos = async (req, res) => {
   return response ? res.status(200).json({ ...response.data }) : res.status(500).json({ message: error });
 };
 
-const commitsCount = async (page, accessToken) => {
-  const {response, error} = await fetch({
-    url: `https://api.github.com/repos/storybooks/storybook/contributors?access_token=${accessToken}&anon=1&page=${page}&per_page=100`,
+const getCommitsCount = async (page, accessToken, repoName) => {
+  const { response, error } = await fetch({
+    url: `https://api.github.com/repos/${repoName}/contributors?access_token=${accessToken}&anon=1&page=${page}&per_page=100`,
     method: "get",
     headers: {
       Authorization: "OAUTH-TOKEN",
       Accept: "application/json"
     }
   });
-  let contributions = response.data.reduce((acc, contributor) => acc + contributor.contributions, 0);
+  let contributions = response && response.data ? response.data.reduce((acc, contributor) => acc + contributor.contributions, 0) : 0;
   if (response.data.length < 100) return contributions;
-  return contributions + (await commitsCount(page + 1, accessToken));
+  return contributions + (await getCommitsCount(page + 1, accessToken, repoName));
 };
 
-const openPullRequestCount = async (page, accessToken) => {
-  const {response, error} = await fetch({
-    url: `https://api.github.com/repos/storybooks/storybook/pulls?state=open?access_token=${accessToken}&anon=1&page=${page}&per_page=100`,
+const getOpenPullRequestCount = async (page, accessToken, repoName) => {
+  const { response, error } = await fetch({
+    url: `https://api.github.com/repos/${repoName}/pulls?state=open?access_token=${accessToken}&anon=1&page=${page}&per_page=100`,
     method: "get",
     headers: {
       Authorization: "OAUTH-TOKEN",
       Accept: "application/json"
     }
   });
-  let count = response.data.length;
+  let count = response && response.data ? response.data.length : 0;
   if (count < 100) return count;
-  return count + (await openPullRequestCount(page + 1, accessToken));
+  return count + (await getOpenPullRequestCount(page + 1, accessToken, repoName));
 };
 
-const getReadMeText = async accessToken => {
-  const {response, error} = await fetch({
-    url: `https://api.github.com/repos/defunkt/jquery-pjax/readme?access_token=${accessToken}`,
+const getReadMeText = async (accessToken, repoName) => {
+  const { response, error } = await fetch({
+    url: `https://api.github.com/repos/${repoName}/readme?access_token=${accessToken}`,
     method: "get",
     headers: {
       Authorization: "OAUTH-TOKEN",
       Accept: "application/vnd.github.VERSION.raw"
     }
   });
-  return response.data;
+  return response && response.data ? response.data : "";
 };
 
-router.post("/", (req, res, next) => getRepos(req, res).then(data => res.status(200).json({...data})));
+router.post("/", (req, res) => getRepos(req, res));
+router.post("/save", (req, res) => {
+  const { repoName, htmlUrl } = req.body;
+  SearchHistorySchema.findOneAndUpdate({ user: req.session.user._id }, { $push: { history: { repoName, htmlUrl } } }, { upsert: true, new: true, safe: true }, (err, result) => {
+    result ? res.status(200).json({ result }) : res.status(500).json({ message: err });
+  });
+});
+
+router.get("/history", (req, res) => {
+  SearchHistorySchema.findOne({ user: req.session.user._id }, async (err, data) => {
+    if (data) {
+      const repodetails = await getRepoDetails(req.session.accessToken, data.history);
+      res.status(200).json(repodetails.sort(sortRepos));
+    } else if (err) res.status(500).json({ message: err });
+    else res.status(200).json([]);
+  });
+});
 
 export default router;

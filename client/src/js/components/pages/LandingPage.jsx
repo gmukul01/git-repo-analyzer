@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from "react";
 import { Redirect } from "react-router-dom";
-import { Link } from "react-router-dom";
 
 import Header from "containers/Header";
 import { GITHUB_LOGIN_URL } from "constants/urls";

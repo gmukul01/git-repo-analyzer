@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 
 import SearchForm from "components/search/Searchresult";
+import { addToSearchHistory } from "actions/search";
 
 const mapStateToProps = state => ({
   isLoading: state.search.isLoading,
@@ -10,5 +11,7 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  null
+  {
+    addToSearchHistory
+  }
 )(SearchForm);

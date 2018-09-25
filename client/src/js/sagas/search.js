@@ -1,7 +1,7 @@
-import { call, put, takeLatest } from "redux-saga/effects";
+import { all, call, put, takeLatest } from "redux-saga/effects";
 
-import { FETCH_REPO_DETAILS } from "constants/actionTypes";
-import { fetchRepoDetailsSuccess, fetchRepoDetailsFailure } from "actions/search";
+import { ADD_TO_SEARCH_HISTORY, FETCH_REPO_DETAILS, FETCH_SEARCH_HISTORY } from "constants/actionTypes";
+import { clearSearchResult, fetchRepoDetailsSuccess, fetchRepoDetailsFailure, fetchSearchHistorySuccess, fetchSearchHistoryFailure, setSearchTableLoadingState } from "actions/search";
 import fetch from "util/fetch";
 import * as URL from "constants/urls";
 
@@ -18,6 +18,32 @@ export function* fetchRepoDetails({ data }) {
   }
 }
 
+export function* saveToSearchHistory({ repoName, htmlUrl }) {
+  yield put(setSearchTableLoadingState(true));
+
+  const { response, error } = yield call(fetch, {
+    url: URL.SAVE_SEARCH,
+    method: "post",
+    data: { repoName, htmlUrl }
+  });
+  if (response) {
+    yield put(setSearchTableLoadingState(false));
+    yield put(clearSearchResult());
+  }
+}
+
+export function* fetchSearchHistory() {
+  const { response, error } = yield call(fetch, {
+    url: URL.SEARCH_HISTORY,
+    method: "get"
+  });
+  if (response) {
+    yield put(fetchSearchHistorySuccess(response.data));
+  } else {
+    yield put(fetchSearchHistoryFailure(error));
+  }
+}
+
 export default function* searchSaga() {
-  yield takeLatest(FETCH_REPO_DETAILS, fetchRepoDetails);
+  yield all([takeLatest(FETCH_REPO_DETAILS, fetchRepoDetails), takeLatest(FETCH_SEARCH_HISTORY, fetchSearchHistory), takeLatest(ADD_TO_SEARCH_HISTORY, saveToSearchHistory)]);
 }

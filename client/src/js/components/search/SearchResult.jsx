@@ -1,5 +1,4 @@
-import React, { PureComponent, Fragment } from "react";
-import ReactLoading from "react-loading";
+import React, { PureComponent } from "react";
 
 export default class extends PureComponent {
   constructor(props) {
@@ -7,24 +6,20 @@ export default class extends PureComponent {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(repo) {}
+  handleClick(evnt, repo) {
+    evnt.preventDefault();
+    this.props.addToSearchHistory(repo.full_name, repo.html_url);
+  }
 
   render() {
-    const { isLoading, errorMessage, result } = this.props;
-    if (isLoading) {
-      return <ReactLoading type="spinningBubbles" color="black" />;
-    }
-
-    if (errorMessage) {
-      return <p>{`Error : ${errorMessage}`}</p>;
-    }
+    const { result } = this.props;
 
     if (!result.items) {
       return null;
     }
 
     const rows = result.items.map(repo => (
-      <tr key={repo.id} onClick={() => this.handleClick(repo)}>
+      <tr key={repo.id} onClick={evnt => this.handleClick(evnt, repo)}>
         <td>{repo.owner.login}</td>
         <td>{repo.name}</td>
         <td>
