@@ -1,6 +1,5 @@
 import express from "express";
 import fetch from "../util/fetch";
-import axios from "axios";
 
 const router = express.Router();
 
@@ -14,13 +13,11 @@ const getRepos = async (req, res) => {
       Accept: "application/json"
     }
   });
-  if (response) res.status(200).json({ ...response.data });
-
-  res.status(500).json({ message: error });
+  return response ? res.status(200).json({ ...response.data }) : res.status(500).json({ message: error });
 };
 
 const commitsCount = async (page, accessToken) => {
-  const response = await axios({
+  const {response, error} = await fetch({
     url: `https://api.github.com/repos/storybooks/storybook/contributors?access_token=${accessToken}&anon=1&page=${page}&per_page=100`,
     method: "get",
     headers: {
@@ -34,7 +31,7 @@ const commitsCount = async (page, accessToken) => {
 };
 
 const openPullRequestCount = async (page, accessToken) => {
-  const response = await axios({
+  const {response, error} = await fetch({
     url: `https://api.github.com/repos/storybooks/storybook/pulls?state=open?access_token=${accessToken}&anon=1&page=${page}&per_page=100`,
     method: "get",
     headers: {
@@ -48,8 +45,7 @@ const openPullRequestCount = async (page, accessToken) => {
 };
 
 const getReadMeText = async accessToken => {
-  console.log(accessToken);
-  const response = await axios({
+  const {response, error} = await fetch({
     url: `https://api.github.com/repos/defunkt/jquery-pjax/readme?access_token=${accessToken}`,
     method: "get",
     headers: {
@@ -60,6 +56,6 @@ const getReadMeText = async accessToken => {
   return response.data;
 };
 
-router.post("/", (req, res, next) => getRepos(req, res));
+router.post("/", (req, res, next) => getRepos(req, res).then(data => res.status(200).json({...data})));
 
 export default router;
