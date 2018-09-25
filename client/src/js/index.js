@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { Router } from "react-router-dom";
+import "bootstrap-sass/assets/javascripts/bootstrap.min.js";
 
 import { sagaMiddleware, store } from "reducers/index";
 import rootSaga from "sagas/index";

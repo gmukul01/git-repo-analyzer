@@ -63,6 +63,9 @@ $brand-primary: $primary-color;
 
 .search--table {
   margin-top: 5%;
+  tr {
+    cursor: pointer;
+  }
 }
 
 @media (max-width: 480px) {

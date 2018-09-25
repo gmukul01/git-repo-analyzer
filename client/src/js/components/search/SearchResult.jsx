@@ -2,6 +2,13 @@ import React, { PureComponent, Fragment } from "react";
 import ReactLoading from "react-loading";
 
 export default class extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(repo) {}
+
   render() {
     const { isLoading, errorMessage, result } = this.props;
     if (isLoading) {
@@ -17,7 +24,7 @@ export default class extends PureComponent {
     }
 
     const rows = result.items.map(repo => (
-      <tr key={repo.id}>
+      <tr key={repo.id} onClick={() => this.handleClick(repo)}>
         <td>{repo.owner.login}</td>
         <td>{repo.name}</td>
         <td>
@@ -29,7 +36,7 @@ export default class extends PureComponent {
     ));
 
     return (
-      <section className="search--table">
+      <section className="search--table container">
         <table className="table table-hover table-responsive">
           <thead>
             <tr>
