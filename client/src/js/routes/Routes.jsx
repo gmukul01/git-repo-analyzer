@@ -3,8 +3,8 @@ import { withRouter, Switch, Route, Redirect } from "react-router-dom";
 import { fetchUserDetails } from "actions/user";
 import { connect } from "react-redux";
 
+import SearchPage from "containers/pages/SearchPage";
 import HomePage from "containers/pages/HomePage";
-import LandingPage from "containers/pages/LandingPage";
 
 const PrivateRoute = ({ component: Component, isAuthenticated, ...rest }) => (
   <Route
@@ -36,8 +36,8 @@ export class Routes extends React.Component {
     const { isUserLoggedIn } = this.props;
     return (
       <Switch>
-        <Route exact path="/" component={LandingPage} />
-        <PrivateRoute path="/home" component={HomePage} isAuthenticated={isUserLoggedIn} />
+        <Route exact path="/" component={HomePage} />
+        <PrivateRoute path="/search" component={SearchPage} isAuthenticated={isUserLoggedIn} />
       </Switch>
     );
   }

@@ -14,7 +14,7 @@ router.get(
     req.session.accessToken = req.user.accessToken;
     req.session.user = req.user.data;
     req.session.save();
-    res.redirect(`${process.env.CLIENT_URL}/home`);
+    res.redirect(`${process.env.CLIENT_URL}/search`);
   }
 );
 

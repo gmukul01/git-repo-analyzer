@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 
-import LandingPage from "containers/pages/LandingPage";
+import HomePage from "containers/pages/HomePage";
 import { Routes } from "routes/Routes";
 
 describe("Routes", () => {
@@ -14,7 +14,7 @@ describe("Routes", () => {
   beforeEach(() => {
     wrapper = shallow(<Routes {...initialProps} />);
   });
-  it("should render LandingPage component if path is '/'", () => {
-    expect(wrapper.find({ path: "/" }).prop("component")).toEqual(LandingPage);
+  it("should render HomePage component if path is '/'", () => {
+    expect(wrapper.find({ path: "/" }).prop("component")).toEqual(HomePage);
   });
 });

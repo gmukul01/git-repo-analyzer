@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HomePage page  should render correctly 1`] = `
+exports[`SearchPage page  should render correctly 1`] = `
 <React.Fragment>
   <Connect(Header) />
   <section
     className="content"
   >
-    <Connect(SearchForm) />
+    <SearchForm />
     <SearchHistory />
   </section>
 </React.Fragment>
