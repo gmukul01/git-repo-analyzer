@@ -35,4 +35,5 @@ All credentials and client ids should be configured in `.env` file.
 ##### Limitations:
 
 - No pagiantion
+- No unit test cases for back end as of now
 - Github api has call limits. For more info - [Check here](https://developer.github.com/v3/rate_limit/#rate-limit)
