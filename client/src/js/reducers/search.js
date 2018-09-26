@@ -1,7 +1,7 @@
-import { CLEAR_SEARCH_RESULT, FETCH_REPO_DETAILS, FETCH_REPO_DETAILS_SUCCESS, FETCH_REPO_DETAILS_FAILURE, FETCH_SEARCH_HISTORY, FETCH_SEARCH_HISTORY_SUCCESS, FETCH_SEARCH_HISTORY_FAILURE, SET_SEARCH_TABLE_LOADING_STATE } from "constants/actionTypes";
+import { CLEAR_SEARCH_RESULT, FETCH_REPO_DETAILS, FETCH_REPO_DETAILS_SUCCESS, FETCH_REPO_DETAILS_FAILURE, FETCH_SEARCH_HISTORY, FETCH_SEARCH_HISTORY_SUCCESS, FETCH_SEARCH_HISTORY_FAILURE, SET_SEARCH_TABLE_LOADING_STATE, ADD_TO_SEARCH_HISTORY_FAILURE } from "constants/actionTypes";
 import createReducer from "reducers/helper";
 
-const initialState = {
+export const initialState = {
   isLoading: false,
   result: {},
   history: [],
@@ -10,7 +10,7 @@ const initialState = {
 
 const addSearchResult = (state, { data }) => ({
   ...state,
-  result: { ...state.result, ...data },
+  result: data,
   isLoading: false,
   errorMessage: undefined
 });
@@ -48,7 +48,8 @@ const user = createReducer(initialState, {
   [FETCH_REPO_DETAILS_FAILURE]: addErrorMessage,
   [FETCH_SEARCH_HISTORY]: state => setLoading(state, true),
   [FETCH_SEARCH_HISTORY_SUCCESS]: addSearchHistory,
-  [FETCH_SEARCH_HISTORY_FAILURE]: addErrorMessage
+  [FETCH_SEARCH_HISTORY_FAILURE]: addErrorMessage,
+  [ADD_TO_SEARCH_HISTORY_FAILURE]: addErrorMessage
 });
 
 export default user;

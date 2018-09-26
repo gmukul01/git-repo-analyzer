@@ -1,7 +1,7 @@
 import { all, call, put, takeLatest } from "redux-saga/effects";
 
 import { ADD_TO_SEARCH_HISTORY, FETCH_REPO_DETAILS, FETCH_SEARCH_HISTORY } from "constants/actionTypes";
-import { clearSearchResult, fetchRepoDetailsSuccess, fetchRepoDetailsFailure, fetchSearchHistorySuccess, fetchSearchHistoryFailure, setSearchTableLoadingState } from "actions/search";
+import { addToSearchHistoryFailure, clearSearchResult, fetchRepoDetailsSuccess, fetchRepoDetailsFailure, fetchSearchHistorySuccess, fetchSearchHistoryFailure, setSearchTableLoadingState } from "actions/search";
 import fetch from "util/fetch";
 import * as URL from "constants/urls";
 
@@ -29,6 +29,8 @@ export function* saveToSearchHistory({ repoName, htmlUrl }) {
   if (response) {
     yield put(setSearchTableLoadingState(false));
     yield put(clearSearchResult());
+  } else {
+    yield put(addToSearchHistoryFailure(error));
   }
 }
 

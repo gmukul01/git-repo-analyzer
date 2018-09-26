@@ -7,7 +7,6 @@ const mapStateToProps = state => ({
   userName: state.user ? state.user.name : undefined,
   history: state.search.history,
   searchResult: state.search.result,
-  searchResult: state.search.result,
   isLoading: state.search.isLoading,
   errorMessage: state.search.errorMessage
 });
@@ -15,8 +14,8 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   {
-    fetchSearchHistory,
     addToSearchHistory,
+    fetchSearchHistory,
     fetchRepoDetails
   }
 )(SearchPage);

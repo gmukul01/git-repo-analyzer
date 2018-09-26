@@ -5,10 +5,6 @@ export default class SearchHistory extends PureComponent {
   render() {
     const { history } = this.props;
 
-    if (!history.length) {
-      return null;
-    }
-
     const rows = history.map((repo, index) => {
       return (
         <tr key={repo.updated_at} data-toggle="modal" data-target={`#${index}`}>

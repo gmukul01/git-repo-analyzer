@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header page  should render correctly 1`] = `
+exports[`Header page  should match snapshot 1`] = `
 <nav
   className="header"
 >

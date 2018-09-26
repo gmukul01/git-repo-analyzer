@@ -1,13 +1,94 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SearchPage page  should render correctly 1`] = `
+exports[`SearchPage page  should match snapshot with when errorMessage is true and isLoading is false 1`] = `
 <React.Fragment>
   <Connect(Header) />
   <section
     className="content"
   >
-    <SearchForm />
-    <SearchHistory />
+    <SearchForm
+      fetchRepoDetails={[MockFunction]}
+    />
+    <p>
+      Error : true
+    </p>
+  </section>
+</React.Fragment>
+`;
+
+exports[`SearchPage page  should match snapshot with when isLoading is true 1`] = `
+<React.Fragment>
+  <Connect(Header) />
+  <section
+    className="content"
+  >
+    <SearchForm
+      fetchRepoDetails={[MockFunction]}
+    />
+    <Loading
+      color="black"
+      delay={0}
+      height={64}
+      type="spinningBubbles"
+      width={64}
+    />
+  </section>
+</React.Fragment>
+`;
+
+exports[`SearchPage page  should match snapshot with when search history and result is not present 1`] = `
+<React.Fragment>
+  <Connect(Header) />
+  <section
+    className="content"
+  >
+    <SearchForm
+      fetchRepoDetails={[MockFunction]}
+    />
+  </section>
+</React.Fragment>
+`;
+
+exports[`SearchPage page  should match snapshot with when search history is present 1`] = `
+<React.Fragment>
+  <Connect(Header) />
+  <section
+    className="content"
+  >
+    <SearchForm
+      fetchRepoDetails={[MockFunction]}
+    />
+    <SearchHistory
+      fetchSearchHistory={[MockFunction]}
+      history={
+        Array [
+          "dummyHistory",
+        ]
+      }
+    />
+  </section>
+</React.Fragment>
+`;
+
+exports[`SearchPage page  should match snapshot with when search result is present 1`] = `
+<React.Fragment>
+  <Connect(Header) />
+  <section
+    className="content"
+  >
+    <SearchForm
+      fetchRepoDetails={[MockFunction]}
+    />
+    <PureComponent
+      addToSearchHistory={[MockFunction]}
+      result={
+        Object {
+          "items": Array [
+            "dummyItems",
+          ],
+        }
+      }
+    />
   </section>
 </React.Fragment>
 `;

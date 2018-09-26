@@ -30,8 +30,10 @@ export default class SearchPage extends Component {
               return <p>{`Error : ${errorMessage}`}</p>;
             } else if (searchResult && searchResult.items && searchResult.items.length > 0) {
               return <SearchResult result={searchResult} addToSearchHistory={addToSearchHistory} />;
+            } else if (history && history.length > 0) {
+              return <SearchHistory history={history} fetchSearchHistory={fetchSearchHistory} />;
             }
-            return <SearchHistory history={history} fetchSearchHistory={fetchSearchHistory} />;
+            return null;
           })()}
         </section>
       </Fragment>

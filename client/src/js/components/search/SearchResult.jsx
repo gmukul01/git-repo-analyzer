@@ -14,10 +14,6 @@ export default class extends PureComponent {
   render() {
     const { result } = this.props;
 
-    if (!result.items) {
-      return null;
-    }
-
     const rows = result.items.map(repo => (
       <tr key={repo.id} onClick={evnt => this.handleClick(evnt, repo)}>
         <td>{repo.owner.login}</td>
