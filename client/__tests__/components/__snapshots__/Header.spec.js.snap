@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header page  should match snapshot 1`] = `
+exports[`Header Component should match snapshot when source is not present in props 1`] = `
 <nav
   className="header"
 >
@@ -11,5 +11,44 @@ exports[`Header page  should match snapshot 1`] = `
   >
     Git Repo Analyzer
   </Link>
+</nav>
+`;
+
+exports[`Header Component should match snapshot when user is logged in 1`] = `
+<nav
+  className="header"
+>
+  <Link
+    className="logo"
+    replace={false}
+    to="/"
+  >
+    Git Repo Analyzer
+  </Link>
+  <React.Fragment>
+    <section>
+      <Link
+        replace={false}
+        to="/"
+      >
+        Home
+      </Link>
+      <Link
+        replace={false}
+        to="/search"
+      >
+        Search
+      </Link>
+      <a
+        href="/auth/logout"
+      >
+        Logout
+      </a>
+    </section>
+    <span>
+      Hello 
+      dummyUserName
+    </span>
+  </React.Fragment>
 </nav>
 `;

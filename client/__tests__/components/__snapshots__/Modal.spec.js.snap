@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Modal page  should match snapshot when source is not present in props 1`] = `
+exports[`Modal Component should match snapshot when source is not present in props 1`] = `
 <div
   className="modal fade"
   id="dummyId"
@@ -59,7 +59,7 @@ exports[`Modal page  should match snapshot when source is not present in props 1
 </div>
 `;
 
-exports[`Modal page  should match snapshot when source is present in props 1`] = `
+exports[`Modal Component should match snapshot when source is present in props 1`] = `
 <div
   className="modal fade"
   id="dummyId"

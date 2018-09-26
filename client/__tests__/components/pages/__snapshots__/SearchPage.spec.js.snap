@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SearchPage page  should match snapshot with when errorMessage is true and isLoading is false 1`] = `
+exports[`SearchPage Component should match snapshot with when errorMessage is true and isLoading is false 1`] = `
 <React.Fragment>
   <Connect(Header) />
   <section
@@ -20,7 +20,7 @@ exports[`SearchPage page  should match snapshot with when errorMessage is true a
 </React.Fragment>
 `;
 
-exports[`SearchPage page  should match snapshot with when isLoading is true 1`] = `
+exports[`SearchPage Component should match snapshot with when isLoading is true 1`] = `
 <React.Fragment>
   <Connect(Header) />
   <section
@@ -45,7 +45,7 @@ exports[`SearchPage page  should match snapshot with when isLoading is true 1`] 
 </React.Fragment>
 `;
 
-exports[`SearchPage page  should match snapshot with when search history and result is not present 1`] = `
+exports[`SearchPage Component should match snapshot with when search history and result is not present 1`] = `
 <React.Fragment>
   <Connect(Header) />
   <section
@@ -61,7 +61,7 @@ exports[`SearchPage page  should match snapshot with when search history and res
 </React.Fragment>
 `;
 
-exports[`SearchPage page  should match snapshot with when search history is present 1`] = `
+exports[`SearchPage Component should match snapshot with when search history is present 1`] = `
 <React.Fragment>
   <Connect(Header) />
   <section
@@ -86,7 +86,7 @@ exports[`SearchPage page  should match snapshot with when search history is pres
 </React.Fragment>
 `;
 
-exports[`SearchPage page  should match snapshot with when search result is present 1`] = `
+exports[`SearchPage Component should match snapshot with when search result is present 1`] = `
 <React.Fragment>
   <Connect(Header) />
   <section

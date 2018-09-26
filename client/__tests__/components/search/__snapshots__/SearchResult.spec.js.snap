@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchResult Component should match snapshot 1`] = `
+<section
+  className="table-responsive search-result-table"
+>
+  <table
+    className="table table-hover"
+  >
+    <thead>
+      <tr>
+        <th>
+          Owner Name
+        </th>
+        <th>
+          Repo Name
+        </th>
+        <th>
+          Repo Link
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        onClick={[Function]}
+      >
+        <td>
+          dummyUserName
+        </td>
+        <td>
+          dummyRepoName1
+        </td>
+        <td>
+          <a
+            href="dummyUrl1"
+            target="_blank"
+          >
+            Link
+          </a>
+        </td>
+      </tr>
+      <tr
+        onClick={[Function]}
+      >
+        <td>
+          dummyUserName2
+        </td>
+        <td>
+          dummyRepoName2
+        </td>
+        <td>
+          <a
+            href="dummyUrl2"
+            target="_blank"
+          >
+            Link
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+`;

@@ -6,7 +6,7 @@ import fetch from "util/fetch";
 import * as URL from "constants/urls";
 import searchSaga, { fetchSearchHistory, fetchRepoDetails, saveToSearchHistory } from "sagas/Search";
 
-describe("Search saga tests", () => {
+describe("Search saga", () => {
   const response = {
       data: "dummySearch"
     },

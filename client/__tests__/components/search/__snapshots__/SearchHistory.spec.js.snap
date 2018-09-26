@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchHistory Component should match snapshot 1`] = `
+<section
+  className="table-responsive search-history-table"
+>
+  <table
+    className="table table-hover"
+  >
+    <thead>
+      <tr>
+        <th>
+          Repo Full Name
+        </th>
+        <th>
+          Commits
+        </th>
+        <th>
+          Open Pull Reuests
+        </th>
+        <th>
+          Repo Link
+        </th>
+        <th>
+          Readme
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          dummyRepoName1
+        </td>
+        <td>
+          10
+        </td>
+        <td>
+          1
+        </td>
+        <td>
+          <a
+            href="dummyUrl1"
+            target="_blank"
+          >
+            Link
+          </a>
+        </td>
+        <td>
+          <a
+            data-target="#0"
+            data-toggle="modal"
+            href="#"
+          >
+            Readme
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          dummyRepoName2
+        </td>
+        <td>
+          10
+        </td>
+        <td>
+          1
+        </td>
+        <td>
+          <a
+            href="dummyUrl2"
+            target="_blank"
+          >
+            Link
+          </a>
+        </td>
+        <td>
+          <a
+            data-target="#1"
+            data-toggle="modal"
+            href="#"
+          >
+            Readme
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <Modal
+    modalHeader="dummyRepoName1"
+    modalId="0"
+  />
+  <Modal
+    modalHeader="dummyRepoName2"
+    modalId="1"
+  />
+</section>
+`;

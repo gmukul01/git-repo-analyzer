@@ -12,7 +12,9 @@ export default class SearchHistory extends PureComponent {
           <td>{repo.commitCount}</td>
           <td>{repo.openPullRequenCount}</td>
           <td>
-            <a href={`${repo.htmlUrl}`}>Link</a>
+            <a href={`${repo.htmlUrl}`} target="_blank">
+              Link
+            </a>
           </td>
           <td>
             <a href="#" data-toggle="modal" data-target={`#${index}`}>

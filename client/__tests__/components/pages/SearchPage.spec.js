@@ -4,7 +4,7 @@ import ShallowRenderer from "react-test-renderer/shallow";
 
 import SearchPage from "components/pages/SearchPage";
 
-describe("SearchPage page ", () => {
+describe("SearchPage Component", () => {
   const initialProps = {
     history: ["dummyHistory"],
     searchResult: {

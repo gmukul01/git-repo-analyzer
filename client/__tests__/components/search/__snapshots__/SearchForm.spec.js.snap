@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SearchForm page  should match snapshot 1`] = `
+exports[`SearchForm Component should match snapshot 1`] = `
 <React.Fragment>
   <form
     className="search-form"

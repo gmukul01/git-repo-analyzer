@@ -4,7 +4,7 @@ import ShallowRenderer from "react-test-renderer/shallow";
 
 import SearchForm from "components/search/SearchForm";
 
-describe("SearchForm page ", () => {
+describe("SearchForm Component", () => {
   let wrapper;
   const mockFetchRepoDetails = jest.fn();
   it("should match snapshot", () => {

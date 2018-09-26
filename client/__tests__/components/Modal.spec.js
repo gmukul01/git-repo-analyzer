@@ -4,7 +4,7 @@ import ShallowRenderer from "react-test-renderer/shallow";
 
 import Modal from "components/Modal";
 
-describe("Modal page ", () => {
+describe("Modal Component", () => {
   let wrapper;
   const initialProps = {
     modalId: "dummyId",

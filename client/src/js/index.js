@@ -6,7 +6,7 @@ import "bootstrap-sass/assets/javascripts/bootstrap.min.js";
 
 import { sagaMiddleware, store } from "reducers/index";
 import rootSaga from "sagas/index";
-import Routes from "routes/Routes";
+import Routes from "containers/Routes";
 import history from "util/history";
 import "assets/stylesheets/main.scss";
 
