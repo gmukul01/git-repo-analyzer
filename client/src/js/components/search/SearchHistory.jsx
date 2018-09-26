@@ -7,13 +7,16 @@ export default class SearchHistory extends PureComponent {
 
     const rows = history.map((repo, index) => {
       return (
-        <tr key={repo.updated_at} data-toggle="modal" data-target={`#${index}`}>
+        <tr key={repo.updated_at}>
           <td>{repo.repoName}</td>
           <td>{repo.commitCount}</td>
           <td>{repo.openPullRequenCount}</td>
           <td>
-            <a href={repo.htmlUrl} target="_blank">
-              Link
+            <a href={`${repo.htmlUrl}`}>Link</a>
+          </td>
+          <td>
+            <a href="#" data-toggle="modal" data-target={`#${index}`}>
+              Readme
             </a>
           </td>
         </tr>
@@ -25,14 +28,15 @@ export default class SearchHistory extends PureComponent {
     });
 
     return (
-      <section className="search--table container">
-        <table className="table table-hover table-responsive">
+      <section className="table-responsive search-history-table">
+        <table className="table table-hover">
           <thead>
             <tr>
               <th>Repo Full Name</th>
               <th>Commits</th>
               <th>Open Pull Reuests</th>
               <th>Repo Link</th>
+              <th>Readme</th>
             </tr>
           </thead>
           <tbody>{rows}</tbody>

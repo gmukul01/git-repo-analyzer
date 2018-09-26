@@ -1,0 +1,26 @@
+@mixin header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 20px;
+  background-color: $primary-color;
+  color: $secondary-text-color;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  a {
+    color: $secondary-text-color;
+    line-height: $header-height;
+    max-height: $header-height;
+    text-decoration: none;
+    margin-right: 25px;
+  }
+
+  span {
+    line-height: $header-height;
+  }
+
+  .logo {
+    font-weight: 500;
+    font-size: 20px;
+  }
+}

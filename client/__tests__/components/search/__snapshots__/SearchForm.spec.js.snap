@@ -3,7 +3,7 @@
 exports[`SearchForm page  should match snapshot 1`] = `
 <React.Fragment>
   <form
-    className="search--form"
+    className="search-form"
   >
     <input
       className="form-control"

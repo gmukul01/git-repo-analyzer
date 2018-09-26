@@ -27,8 +27,8 @@ export default class extends PureComponent {
     ));
 
     return (
-      <section className="search--table container">
-        <table className="table table-hover table-responsive">
+      <section className="table-responsive search-result-table">
+        <table className="table table-hover">
           <thead>
             <tr>
               <th>Owner Name</th>

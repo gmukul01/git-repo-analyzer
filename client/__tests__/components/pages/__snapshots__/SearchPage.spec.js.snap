@@ -9,9 +9,13 @@ exports[`SearchPage page  should match snapshot with when errorMessage is true a
     <SearchForm
       fetchRepoDetails={[MockFunction]}
     />
-    <p>
-      Error : true
-    </p>
+    <summary
+      className="search-content"
+    >
+      <p>
+        Error : true
+      </p>
+    </summary>
   </section>
 </React.Fragment>
 `;
@@ -25,13 +29,18 @@ exports[`SearchPage page  should match snapshot with when isLoading is true 1`] 
     <SearchForm
       fetchRepoDetails={[MockFunction]}
     />
-    <Loading
-      color="black"
-      delay={0}
-      height={64}
-      type="spinningBubbles"
-      width={64}
-    />
+    <summary
+      className="search-content"
+    >
+      <Loading
+        className="search-spinner"
+        color="black"
+        delay={0}
+        height={64}
+        type="spinningBubbles"
+        width={64}
+      />
+    </summary>
   </section>
 </React.Fragment>
 `;
@@ -44,6 +53,9 @@ exports[`SearchPage page  should match snapshot with when search history and res
   >
     <SearchForm
       fetchRepoDetails={[MockFunction]}
+    />
+    <summary
+      className="search-content"
     />
   </section>
 </React.Fragment>
@@ -58,14 +70,18 @@ exports[`SearchPage page  should match snapshot with when search history is pres
     <SearchForm
       fetchRepoDetails={[MockFunction]}
     />
-    <SearchHistory
-      fetchSearchHistory={[MockFunction]}
-      history={
-        Array [
-          "dummyHistory",
-        ]
-      }
-    />
+    <summary
+      className="search-content"
+    >
+      <SearchHistory
+        fetchSearchHistory={[MockFunction]}
+        history={
+          Array [
+            "dummyHistory",
+          ]
+        }
+      />
+    </summary>
   </section>
 </React.Fragment>
 `;
@@ -79,16 +95,20 @@ exports[`SearchPage page  should match snapshot with when search result is prese
     <SearchForm
       fetchRepoDetails={[MockFunction]}
     />
-    <PureComponent
-      addToSearchHistory={[MockFunction]}
-      result={
-        Object {
-          "items": Array [
-            "dummyItems",
-          ],
+    <summary
+      className="search-content"
+    >
+      <PureComponent
+        addToSearchHistory={[MockFunction]}
+        result={
+          Object {
+            "items": Array [
+              "dummyItems",
+            ],
+          }
         }
-      }
-    />
+      />
+    </summary>
   </section>
 </React.Fragment>
 `;

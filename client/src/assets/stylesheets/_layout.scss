@@ -3,8 +3,6 @@ body {
   height: 100%;
 }
 
-$brand-primary: $primary-color;
-
 .layout {
   height: 100%;
   width: 100%;
@@ -16,72 +14,23 @@ $brand-primary: $primary-color;
 
   .header {
     grid-column: 1 / -1;
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0 20px;
-    background-color: $primary-color;
-    color: $secondary-text-color;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
-    a {
-      color: $secondary-text-color;
-      line-height: $header-height;
-      max-height: $header-height;
-      text-decoration: none;
-    }
-
-    .logo {
-      font-weight: 500;
-      font-size: 20px;
-      margin-right: auto;
-    }
+    @include header();
   }
-
   .content {
-    margin: 0px 10%;
     grid-column: 1 / -1;
+    margin: 0px 10%;
     padding: 20px;
-  }
-}
-
-.search--form {
-  display: flex;
-
-  span,
-  button {
-    align-self: center;
-    max-height: 35px;
-  }
-  input {
-    flex: 2;
-    margin: 5px;
-    &:nth-child(1) {
-      flex: 1;
-    }
-  }
-}
-
-.search--table {
-  margin-top: 5%;
-  tr {
-    cursor: pointer;
   }
 }
 
 @media (max-width: 480px) {
   .layout {
-    grid-template-rows: $header-height * 2 auto;
+    grid-template-rows: $header-height * 3 auto;
     .header {
       flex-direction: column;
     }
     .content {
-      flex-direction: column;
-    }
-
-    .search--form {
-      span {
-        display: none;
-      }
+      margin: 0px;
     }
   }
 }

@@ -1,8 +1,12 @@
 @import "_variables.scss";
-@import "_layout.scss";
 
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 $fa-font-path: "~font-awesome/fonts";
 @import "bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 @import "~font-awesome/scss/font-awesome.scss";
 @import "_bootstrap-social.scss";
+
+@import "_home.scss";
+@import "_search.scss";
+@import "_header.scss";
+@import "_layout.scss";

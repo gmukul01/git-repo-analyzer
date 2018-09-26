@@ -23,7 +23,7 @@ export default class SearchForm extends PureComponent {
   render() {
     return (
       <Fragment>
-        <form className="search--form">
+        <form className="search-form">
           <input value={this.state.ownerName} onChange={this.handleChange} type="text" name="ownerName" className="form-control" placeholder="Owner Name" />
           <span>/</span>
           <input value={this.state.repoName} onChange={this.handleChange} type="text" name="repoName" className="form-control" placeholder="Repository Name" />
