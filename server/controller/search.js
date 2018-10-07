@@ -34,9 +34,15 @@ const getCommitsCount = async (page, accessToken, repoName) => {
       Accept: "application/json"
     }
   });
-  let contributions = response && response.data ? response.data.reduce((acc, contributor) => acc + contributor.contributions, 0) : 0;
-  if (response.data.length < 100) return contributions;
-  return contributions + (await getCommitsCount(page + 1, accessToken, repoName));
+
+  if (response && response.data) {
+    const { data } = response;
+    let contributions = data.reduce((acc, contributor) => acc + contributor.contributions, 0);
+    if (data.length < 100) return contributions;
+    return contributions + (await getCommitsCount(page + 1, accessToken, repoName));
+  }
+
+  return 0;
 };
 
 const getOpenPullRequestCount = async (page, accessToken, repoName) => {
